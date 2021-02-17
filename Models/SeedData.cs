@@ -29,40 +29,48 @@ namespace BookSeller.Models
                     new Book
                     {
                         Title = "Unbroken",
-                        Author = "Laura Hillenbrand",
+                        AuthorFirst = "Laura",
+                        AuthorLast = "Hillenbrand",
                         Publisher = "Random House",
                         ISBN = 9780812974492,
-                        Category = "Non-Fiction, Historical",
+                        Classification = "Non-Fiction",
+                        Category = "Historical",
                         Price = 13.33
                     },
 
                     new Book
                     {
                         Title = "Deep Work",
-                        Author = "Cal Newport",
+                        AuthorFirst = "Cal",
+                        AuthorLast = "Newport",
                         Publisher = "Grand Central Publishing",
                         ISBN = 9781455586691,
-                        Category = "Non-Fiction, Self-Help",
+                        Classification = "Non-Fiction",
+                        Category = "Self-Help",
                         Price = 14.99
                     },
 
                     new Book
                     {
                         Title = "Sycamore Row",
-                        Author = "John Grisham",
+                        AuthorFirst = "John",
+                        AuthorLast = "Grisham",
                         Publisher = "Bantam",
                         ISBN = 9780553393613,
-                        Category = "Fiction, Thrillers",
+                        Classification = "Fiction",
+                        Category = "Thrillers",
                         Price = 15.03
                     },
 
                     new Book
                     {
                         Title = "The Snowball",
-                        Author = "Alice Schroeder",
+                        AuthorFirst = "Alice",
+                        AuthorLast = "Schroeder",
                         Publisher = "Bantam",
                         ISBN = 9780553384611,
-                        Category = "Non-Fiction, Biography",
+                        Classification = "Non-Fiction",
+                        Category = "Biography",
                         Price = 21.54
                     }
                 );
