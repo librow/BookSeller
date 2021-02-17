@@ -65,7 +65,7 @@ namespace BookSeller
             });
 
             //passing in the app info which says if project has already been migrated - NOT NEEDED NOW since data has been seeded
-            //SeedData.EnsurePopulated(app);
+            SeedData.EnsurePopulated(app);
         }
     }
 }
