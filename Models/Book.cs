@@ -23,7 +23,7 @@ namespace BookSeller.Models
         public string Publisher { get; set; }
         [Required]
         //validates to see if input is formmatted correctly as an ISBN number
-        [RegularExpression(@"^(97(8|9))-?\d{9}(\d|X)$", ErrorMessage = "Please enter a valid ISBN 10 or ISBN 13 number. If ISBN 13, confirm it starts with only 978 or 979.")]
+        [RegularExpression(@"^(97(8|9))?\d{9}(\d|X)$", ErrorMessage = "Please enter a valid ISBN 10 or ISBN 13 number. If ISBN 13, confirm it starts with only 978 or 979.")]
         public long ISBN { get; set; }
         [Required]
         public string Category { get; set; }
