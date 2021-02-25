@@ -98,7 +98,7 @@ namespace BookSeller.Models
                         AuthorMid = "Wynne",
                         AuthorLast = "Jones",
                         Publisher = "Greenwillow Books",
-                        ISBN = 978 - 0064410342,
+                        ISBN = 9780064410342,
                         Classification = "Fiction",
                         Category = "Fantasy",
                         Price = 8.99,
