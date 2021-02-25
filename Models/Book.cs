@@ -33,5 +33,7 @@ namespace BookSeller.Models
         //validates the price to make sure it's inputted correctly
         [RegularExpression(@"^\d*\.?\d*$", ErrorMessage ="Please enter a valid price (ie. strictly numerical, non-negative values).")]
         public double Price { get; set; }
+        [Required]
+        public int PageNum { get; set; }
     }
 }

@@ -59,13 +59,16 @@ namespace BookSeller
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            endpoints.MapControllerRoute(
+                "pagination",
+                "P{page}",
+                new { Controller = "Home", action = "Index" });
+
+            endpoints.MapDefaultControllerRoute();
             });
 
             //passing in the app info which says if project has already been migrated - NOT NEEDED NOW since data has been seeded
-            SeedData.EnsurePopulated(app);
+            //SeedData.EnsurePopulated(app);
         }
     }
 }
