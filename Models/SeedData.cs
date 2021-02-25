@@ -25,7 +25,7 @@ namespace BookSeller.Models
             if (!context.Books.Any())
             {
                 context.Books.AddRange(
-                    
+
                     new Book
                     {
                         Title = "Unbroken",
@@ -35,7 +35,8 @@ namespace BookSeller.Models
                         ISBN = 9780812974492,
                         Classification = "Non-Fiction",
                         Category = "Historical",
-                        Price = 13.33
+                        Price = 13.33,
+                        PageNum = 528
                     },
 
                     new Book
@@ -47,7 +48,8 @@ namespace BookSeller.Models
                         ISBN = 9781455586691,
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 14.99
+                        Price = 14.99,
+                        PageNum = 304
                     },
 
                     new Book
@@ -59,7 +61,8 @@ namespace BookSeller.Models
                         ISBN = 9780553393613,
                         Classification = "Fiction",
                         Category = "Thrillers",
-                        Price = 15.03
+                        Price = 15.03,
+                        PageNum = 642
                     },
 
                     new Book
@@ -71,7 +74,48 @@ namespace BookSeller.Models
                         ISBN = 9780553384611,
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54
+                        Price = 21.54,
+                        PageNum = 832
+                    },
+
+                    new Book
+                    {
+                        Title = "Cinder",
+                        AuthorFirst = "Marissa",
+                        AuthorLast = "Meyer",
+                        Publisher = "Square Fish",
+                        ISBN = 9781250768889,
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 9.89,
+                        PageNum = 448
+                    },
+
+                    new Book
+                    {
+                        Title = "Howl's Moving Castle",
+                        AuthorFirst = "Diana",
+                        AuthorMid = "Wynne",
+                        AuthorLast = "Jones",
+                        Publisher = "Greenwillow Books",
+                        ISBN = 978 - 0064410342,
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 8.99,
+                        PageNum = 336
+                    },
+
+                    new Book
+                    {
+                        Title = "Prey: The Drovers",
+                        AuthorFirst = "John",
+                        AuthorLast = "Brown",
+                        Publisher = "Blacksword Books",
+                        ISBN = 9781940427195,
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 12.99,
+                        PageNum = 254
                     }
                 );
                 //saves changes

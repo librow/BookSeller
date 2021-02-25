@@ -47,6 +47,9 @@ namespace BookSeller.Migrations
                     b.Property<long>("ISBN")
                         .HasColumnType("bigint");
 
+                    b.Property<int>("PageNum")
+                        .HasColumnType("int");
+
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
