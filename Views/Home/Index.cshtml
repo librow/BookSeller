@@ -10,42 +10,20 @@
 @model BookListViewModel
 
 <div class="text-center">
-    <h1 class="border bg-light">Sell and Buy Books</h1>
-    <div>
-        <p>Click on the book name to see more information</p>
-    </div>
-    
+    <h1 class="border bg-light">Available Books</h1>
 </div>
 
 @* Iterates through each object created in the database/model *@
 @foreach (var b in Model.Books)
 {
-    <div class="container, text-left">
-        <div class="panel-group">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#@b.BookId">@b.Title</a>
-                    </h4>
-                </div>
-                <div id="@b.BookId" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <p>Author: @b.AuthorFirst @b.AuthorLast</p>
-                        <p>Publisher: @b.Publisher</p>
-                        <p>ISBN: @b.ISBN</p>
-                        <p>Classification: @b.Classification</p>
-                        <p>Category: @b.Category</p>
-                        <p>Price: @b.Price</p>
-                        <p>Page Count: @b.PageNum</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    // p is the model b/c that's what's being populated every iteration
+    <partial name="BookSummary" model="b" />
 }
 
-@* References the PageLinkTagHelper featueres created *@
-<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-secondary"
-     page-class-selected="btn-primary"
-     class="btn-group pull-right m-1"></div>
+@* variables being set up that html recognizes as attributes; created automatically when defined in the tag helper *@
+<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+     page-url-category="@Model.CurrentCategory"
+     class="btn-group pull-right m-1">
+
+</div>
