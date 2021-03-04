@@ -1,0 +1,24 @@
+﻿@* Sets up how each object will be displayed *@
+
+@model Book
+
+<div class="card bg-secondary text-light card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h4>
+            Program Name: @Model.Title
+            <span class="badge badge-pill badge-primary" style="float:right">
+                <small><p>$@Model.Price</p></small>
+            </span>
+        </h4>
+        <p>Author: @Model.AuthorFirst @Model.AuthorLast</p>
+        <div class="card-text text-light p-1">
+            <p>Publisher: @Model.Publisher</p>
+        </div>
+
+        <p text-light>ISBN: @Model.ISBN</p>
+        <p>Classification: @Model.Classification</p>
+        <p>Category: @Model.Category</p>
+        <p>Page Number Count: @Model.PageNum</p>
+    </div>
+
+</div>

@@ -20,7 +20,6 @@ namespace BookSeller
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -59,12 +58,24 @@ namespace BookSeller
 
             app.UseEndpoints(endpoints =>
             {
-            endpoints.MapControllerRoute(
-                "pagination",
-                "P{page}",
-                new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" });
 
-            endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute("page",
+                    "{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+                endpoints.MapControllerRoute(
+                    "pagination",
+                    "P{page}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapDefaultControllerRoute();
             });
 
             //passing in the app info which says if project has already been migrated - NOT NEEDED NOW since data has been seeded

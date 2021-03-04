@@ -6,10 +6,10 @@
     <title>@ViewData["Title"] - BookSeller</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
@@ -41,8 +41,14 @@
         </nav>
     </header>
 
-    <div>
-        @RenderBody()
+    <div class="row m-1 p-1">
+        <div id="title" class="col-4">
+            <h1>Buy and Sell Books</h1>
+            <vc:navigation-menu /> @* building a view component on the page *@
+        </div>
+        <div class="col-8">
+            @RenderBody()
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
