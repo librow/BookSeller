@@ -4,7 +4,7 @@
    asp-route-category="">
     Home
 </a>
-
+@* iterates through all the listed categories for navigation *@
 @foreach (string category in Model)
 {
     <a class="btn btn-block @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
