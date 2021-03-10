@@ -1,10 +1,13 @@
 using BookSeller.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -29,11 +32,19 @@ namespace BookSeller
 
             services.AddDbContext<BookDBContext>(options => 
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:BookSellerConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:BookSellerConnection"]);
             });
 
             //service is iBookRepository and implementation of that service is EFBookRepository
             services.AddScoped<iBookRepository, EFBookRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            //services.AddHttpContextAccessor();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +62,8 @@ namespace BookSeller
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 
@@ -76,6 +89,7 @@ namespace BookSeller
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
 
             //passing in the app info which says if project has already been migrated - NOT NEEDED NOW since data has been seeded

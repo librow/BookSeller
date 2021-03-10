@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace BookSeller.Components
 {
+    // A view componenet = small,reusable application logic 
+    //of some sort that builds in the app and is dropped on the page
     public class NavigationMenuViewComponent : ViewComponent 
     {
         private iBookRepository repository;
@@ -19,6 +21,8 @@ namespace BookSeller.Components
 
         public IViewComponentResult Invoke()
         {
+            // building a viewbag component, creating a nullable property; 
+            // category refers to the category in the route data(the endpoint in startup.cs)
             ViewBag.SelectedCategory = RouteData?.Values["category"];
  
             return View(repository.Books

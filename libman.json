@@ -1,0 +1,12 @@
+//pulling in the font-awesome library to get the cart icon
+
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "font-awesome@5.12.0",
+      "destination": "wwwroot/lib/"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+﻿@page
+@model BookSeller.Pages.PurchaseModel
+@{
+}
+
+<h2>Your Cart</h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Title</th><th>Quantity</th><th class="text-right">Price</th><th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* iterates through the lines created in the model Cart *@
+        @foreach(var line in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="text-left">@line.Book.Title</td>
+                <td class="text-center">@line.Quantity</td>
+                <td class="text-right">@line.Book.Price</td>
+                <td class="text-right">@((line.Quantity * line.Book.Price).ToString("c"))</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td class="text-right">@Model.Cart.ComputeTotalSum().ToString("c")</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>
